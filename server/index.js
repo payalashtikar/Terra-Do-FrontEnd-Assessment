@@ -3,6 +3,8 @@ const app = express()
 const dotEnv = require('dotenv')
 dotEnv.config()
 const port = process.env.PORT
+require('./db/dbConnection')
+
 
 app.get('/', async (req, res) => {
     res.send('hi')
