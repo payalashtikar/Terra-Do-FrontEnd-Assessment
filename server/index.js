@@ -4,6 +4,7 @@ const dotEnv = require('dotenv')
 dotEnv.config()
 const port = process.env.PORT
 require('./db/dbConnection')
+require('./models/userModel')
 
 
 app.get('/', async (req, res) => {
