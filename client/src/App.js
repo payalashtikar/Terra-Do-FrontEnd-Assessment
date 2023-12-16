@@ -5,6 +5,8 @@ import Navbar from './components/Navbar';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Homepage from './pages/Homepage';
+import { AddTask } from './components/task/AddTasks';
+import { UpdateTask } from './components/task/UpdateTask';
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
           isUserLogin &&
           <>
             <Route path='/homepage' element={<Homepage />} />
+            <Route path='/addtask' element={<AddTask />} />
+            <Route path='/task/:id' element={<UpdateTask />} />
           </>
         }
       </Routes>
