@@ -15,7 +15,6 @@ router.post('/task', async (req, res) => {
         return res.status(400).json({ error: "Error", error })
     }
 })
-
 // read task - GET
 router.get('/task', async (req, res) => {
     try {
@@ -26,7 +25,6 @@ router.get('/task', async (req, res) => {
         return res.status(400).json({ error: "Error", error })
     }
 })
-
 // update task - PUT
 router.put('/task/:id', async (req, res) => {
     try {
@@ -40,7 +38,6 @@ router.put('/task/:id', async (req, res) => {
         return res.status(400).json({ error: "Error", error })
     }
 })
-
 // delete task - DELETE
 router.delete('/task/:id', async (req, res) => {
     try {
