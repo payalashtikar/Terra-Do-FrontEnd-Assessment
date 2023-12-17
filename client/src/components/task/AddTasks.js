@@ -1,30 +1,25 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { addTask } from '../../redux/actions/taskActions';
 
 export const AddTask = () => {
     const navigate = useNavigate();
     const [task, setTask] = useState('');
 
+    const dispatch = useDispatch()
+
+
     const addTaskFunction = async () => {
         try {
-            const response = await fetch('http://localhost:8888/task', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ taskname: task }),
-            });
-            const data = await response.json();
-            console.log(data);
-            setTask('');
-            if (response.ok) {
-                navigate('/homepage');
-            } else {
-                console.log(data.error);
-            }
-        } catch (error) {
+            dispatch(addTask(task));
+            setTask('')
+            navigate('/homepage')
+        }
+        catch (error) {
             console.error('Error posting task:', error);
         }
+
     };
 
     const handleSubmit = async (event) => {

@@ -1,13 +1,17 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import { logoutUser } from '../redux/actions/authAction'
 
 const Navbar = () => {
     const isUserLogin = localStorage.getItem('token')
     const navigate = useNavigate()
 
+    const dispatch = useDispatch();
+    const auth = useSelector((state) => state.auth);
+
     const handleLogout = () => {
-        localStorage.removeItem('token')
-        navigate('/login')
+        dispatch(logoutUser(navigate));
     }
     return (
         <div className=''>
@@ -53,7 +57,6 @@ const Navbar = () => {
                 </div >
             </nav >
         </div >
-        // <>hi</>
     )
 }
 

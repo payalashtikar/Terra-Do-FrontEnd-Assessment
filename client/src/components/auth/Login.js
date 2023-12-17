@@ -1,40 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../../redux/actions/authAction';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate()
 
-    useEffect(() => {
-        fetchUser()
-    }, [])
-
-    const fetchUser = () => {
-        axios.get("http://localhost:8888/signup")
-            .then((res) => {
-                console.log('inside Login res.data', res.data)
-            })
-    }
+    const dispatch = useDispatch();
+    const auth = useSelector((state) => state.auth);
 
     const handleLogin = async (event) => {
         event.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:8888/login', { email, password })
-            const token = response.data.token;
-            console.log(token)
-            alert("Login Successful ! ")
-            setEmail('')
-            setPassword('')
-            fetchUser()
-            navigate('/homepage')
-            window.location.reload()
-            localStorage.setItem('token', token)
-        }
-        catch (error) {
-            console.log('unable to login')
-        }
+
+
+        const userData = { email, password };
+        dispatch(loginUser(userData, navigate));
     };
 
     return (

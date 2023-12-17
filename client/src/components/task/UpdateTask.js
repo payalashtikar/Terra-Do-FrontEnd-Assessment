@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 // import './addtask.css';
 import { useNavigate, useParams } from 'react-router-dom';
+import { updateTask } from '../../redux/actions/taskActions';
 
 export const UpdateTask = () => {
     const params = useParams();
     const navigate = useNavigate();
+
+    const dispatch = useDispatch()
     const [editedTask, setEditedTask] = useState('');
-    // const params = useParams();
 
     const goToHomePage = () => {
         navigate('/homepage')
@@ -15,24 +18,14 @@ export const UpdateTask = () => {
     const updateTaskFunction = async (event) => {
         event.preventDefault(); // Prevent default form submission behavior
         const taskId = params.id;
+
         try {
-            const response = await fetch(`http://localhost:8888/task/${taskId}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    taskname: editedTask,
-                }),
-            });
-            const data = await response.json();
-            console.log(data);
-            if (response.ok) {
-                navigate('/homepage');
-            } else {
-                console.log(data.error);
-            }
-        } catch (error) {
+            dispatch(updateTask(taskId, editedTask))
+            setEditedTask('')
+            navigate('/homepage')
+        }
+
+        catch (error) {
             console.error('Error editing task:', error);
         }
     };

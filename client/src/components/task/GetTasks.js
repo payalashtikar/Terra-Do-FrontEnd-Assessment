@@ -1,35 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteTask, getAllTasks } from '../../redux/actions/taskActions';
 
 const GetAllTask = () => {
-    const [tasks, setTasks] = useState([]);
-
-    const getAllTasks = async () => {
-        try {
-            const response = await fetch('http://localhost:8888/task');
-            const data = await response.json();
-            console.log('get all task', data.message);
-            setTasks(data.message);
-        } catch (error) {
-            console.error('Error getting all tasks', error);
-        }
-    }
-
-    const deleteTaskFunction = async (id) => {
-        try {
-            await axios.delete(`http://localhost:8888/task/${id}`);
-            setTasks(tasks.filter(task => task._id !== id));
-            console.log('deleted')
-        }
-        catch (error) {
-            console.error('Error deleting task:', error);
-        }
-    };
+    // const [tasks, setTasks] = useState([]);
+    const dispatch = useDispatch();
+    const tasks = useSelector((state) => state.task.tasks);
 
     useEffect(() => {
-        getAllTasks();
-    }, []);
+        dispatch(getAllTasks());
+    }, [dispatch]);
+
+    const deleteTaskFunction = (id) => {
+
+        dispatch(deleteTask(id))
+
+    };
+
 
     return (
         <div className='flex flex-col items-center  p-10'>
