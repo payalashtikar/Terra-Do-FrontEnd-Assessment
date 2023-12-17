@@ -1,43 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../../redux/actions/authAction';
 
 const Register = () => {
-    const [user, setUser] = useState([]);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
     const navigate = useNavigate()
 
-    useEffect(() => {
-        fetchUser()
-    }, [])
-
-    const fetchUser = () => {
-        axios.get("http://localhost:8888/signup")
-            .then((res) => {
-                console.log('inside register res.data', res.data)
-            })
-    }
+    const dispatch = useDispatch();
+    const auth = useSelector((state) => state.auth);
 
     const handleRegister = (event) => {
         event.preventDefault();
+        const userData = { username, email, password };
+        dispatch(registerUser(userData, navigate));
 
-        axios.post('http://localhost:8888/signup', { username, email, password })
-            .then(() => {
-                alert("Registration Successful ! ")
-                setEmail('')
-                setUsername('')
-                setPassword('')
-                fetchUser()
-                navigate('/login')
-            })
-            .catch((error) => {
-                setError('')
-                console.log('unable to register')
-            })
     };
+
     return (
         <div className='w-[100%]  flex flex-col justify-center items-center'>
             <form className='w-[500px] flex flex-col  justify-start items-start p-4 border rounded-md mt-20'
