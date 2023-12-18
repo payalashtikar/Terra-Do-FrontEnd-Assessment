@@ -3,7 +3,7 @@ import GetAllTask from '../components/task/GetTasks'
 
 const Homepage = () => {
     return (
-        <div>
+        <div className=''>
             {/* <h1 className="text-center">Welcome to the home page</h1> */}
             <GetAllTask />
         </div>

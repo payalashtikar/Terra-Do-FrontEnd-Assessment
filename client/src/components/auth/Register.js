@@ -26,34 +26,34 @@ const Register = () => {
                 onSubmit={handleRegister}
             >
                 <div className="mb-3 row flex flex-col ">
-                    <label htmlFor="inputUsername" className="col-sm-2 col-form-label flex justify-start">Username</label>
+                    <label htmlFor="inputUsername" className="col-sm-2 col-form-label flex justify-start font-serif">Username</label>
                     <div className="col-sm-10 ">
-                        <input type="username" className="form-control w-[450px]" id="inputUsername"
+                        <input type="username" className="form-control w-[450px] font-serif" id="inputUsername"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
                 </div>
                 <div className="mb-3 row flex flex-col">
-                    <label htmlFor="inputEmail" className="col-sm-2 col-form-label flex justify-start">Email</label>
+                    <label htmlFor="inputEmail" className="col-sm-2 col-form-label flex justify-start font-serif">Email</label>
                     <div className="col-sm-10">
-                        <input type="email" className="form-control  w-[450px]" id="inputEmail"
+                        <input type="email" className="form-control  w-[450px] font-serif" id="inputEmail"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                 </div>
                 <div className="mb-3 row flex flex-col">
-                    <label htmlFor="inputPassword" className="col-sm-2 col-form-label flex justify-start">Password</label>
+                    <label htmlFor="inputPassword" className="col-sm-2 col-form-label flex justify-start font-serif">Password</label>
                     <div className="col-sm-10">
-                        <input type="password" className="form-control  w-[450px]" id="inputPassword"
+                        <input type="password" className="form-control font-serif w-[450px]" id="inputPassword"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                 </div>
                 <div className=" row flex flex-col">
-                    <button className="btn btn-outline-success m-3 p-2 w-32" type="submit">Register</button>
+                    <button className="btn btn-outline-success m-3 p-2 w-32 font-serif" type="submit">Register</button>
                 </div>
             </form>
         </div>
