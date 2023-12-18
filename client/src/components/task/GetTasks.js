@@ -41,26 +41,29 @@ const GetAllTask = () => {
 
 
     return (
-        <div className='flex flex-col items-center  p-10'>
-            <input
-                className='w-[400px] m-8 p-2  border rounded-md'
-                type='text'
-                placeholder='Type here to search'
-                value={searchItem}
-                onChange={handleSearchItem}
-            />
+        <div className='flex flex-col items-center  p-2 font-serif'>
+            <div className='w-[100%] flex justify-between  items-center  mb-8'>
+                <h1 className='text-2xl text-gray-300 font-serif '>here is your task list...</h1>
+                <input
+                    className='w-[350px] mb-8 mt-4 p-2  border rounded-md mt-0 font-serif'
+                    type='text'
+                    placeholder='Type here to search'
+                    value={searchItem}
+                    onChange={handleSearchItem}
+                />
+            </div>
             {/* <h1 className='text-4xl p-4 text-gray-800'>All task list</h1> */}
 
-            <div className='w-[800px]'>
+            <div className='w-[800px] font-serif'>
                 {currentData.length
                     > 0 ? (
                     <ul className=' w-[100%] flex flex-col justify-center items-center'>
                         {currentData.map((item, id) => (
-                            <div className=' w-[100%] card flex flex-col m-2 p-2 justify-center items-center'
+                            <div className='font-serif w-[100%] card flex flex-col m-2 p-2 justify-center items-center'
                                 key={id}
                             >
                                 <div className="card-body flex justify-between items-center  w-[100%]">
-                                    <h5 className="card-title text-2xl">{item.taskname}</h5>
+                                    <h5 className="card-title text-2xl font-serif">{item.taskname}</h5>
                                     <div>
                                         <Link to={"/task/" + item._id} className="card-link">
                                             <i className="ri-edit-line m-2 text-2xl"></i>
@@ -72,7 +75,7 @@ const GetAllTask = () => {
                         ))}
                     </ul>
                 ) : (
-                    <p className='text-6xl'>No tasks available ! add tasks to see task list in your bucket ..!</p>
+                    <p className='text-4xl font-serif'>No tasks available ! add tasks to see task list in your bucket ..!</p>
                 )}
             </div>
             <div className='w-[100%]  mb-0 p-8 m-4 flex justify-between items-center'

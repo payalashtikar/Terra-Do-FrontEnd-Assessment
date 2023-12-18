@@ -39,7 +39,7 @@ export const UpdateTask = () => {
                     <div className="mb-3 row flex flex-col items-center justify-center">
                         <div className="col-sm-12 ">
                             <input
-                                className="form-control w-[400px] p-2"
+                                className="form-control w-[400px] p-2 font-serif"
                                 id="inputUsername"
                                 type='text'
                                 name='taskname'
@@ -50,8 +50,8 @@ export const UpdateTask = () => {
                         </div>
                     </div>
                     <div className=" row flex ">
-                        <button className="btn btn-outline-success m-2 p-2 w-32" type="submit">Edit</button>
-                        <button className="btn btn-outline-danger m-2 p-2 w-32" type="submit" onClick={goToHomePage}>Cancel</button>
+                        <button className="btn btn-outline-success m-2 p-2 w-32 font-serif" type="submit">Edit</button>
+                        <button className="btn btn-outline-danger m-2 p-2 w-32 font-serif" type="submit" onClick={goToHomePage}>Cancel</button>
                     </div>
                 </form>
             </div>

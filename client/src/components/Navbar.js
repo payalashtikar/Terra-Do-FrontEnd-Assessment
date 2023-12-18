@@ -15,21 +15,21 @@ const Navbar = () => {
     }
     return (
         <div className=''>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary p-2 border-b-2 border-gray-100" style={{ background: 'red' }}>
+            <nav className="w-[100%] navbar navbar-expand-lg bg-body-tertiary p-2 border-b-2 border-gray-100  " style={{ background: 'red' }}>
                 <div className="container-fluid flex  justify-between border-b-gray-400">
-                    <a className="navbar-brand" href="#">Navbar</a>
+                    <a className="navbar-brand" href="#"></a>
                     <form className="d-flex ">
                         {
                             isUserLogin
                                 ?
                                 (
                                     <>
-                                        <button className="btn btn-outline-success mr-2 p-2 w-32 mt-2 mb-2" type="submit">
-                                            <Link to='/addtask'>
+                                        <button className="btn btn-outline-success mr-2 p-2 w-32 mt-2 mb-2 font-serif" type="submit">
+                                            <Link to='/addtask' className='font-serif'>
                                                 Add Task
                                             </Link >
                                         </button >
-                                        <button className="btn btn-outline-danger mr-2 p-2 w-32 mt-2 mb-2" type="submit"
+                                        <button className="btn btn-outline-danger mr-2 p-2 w-32 mt-2 mb-2 font-serif" type="submit"
                                             onClick={handleLogout}
                                         >
                                             Logout
@@ -39,13 +39,13 @@ const Navbar = () => {
                                 :
                                 (
                                     <>
-                                        <button className="btn btn-outline-success mr-3 p-2 w-32 mt-2 mb-2" type="submit">
-                                            <Link to='/login'>
+                                        <button className="btn btn-outline-success mr-3 p-2 w-32 mt-2 mb-2 font-serif" type="submit">
+                                            <Link to='/login' className='font-serif'>
                                                 Login
                                             </Link>
                                         </button>
-                                        <button className="btn btn-outline-primary mr-3 p-2 w-32 mt-2 mb-2" type="submit">
-                                            <Link to='/register'>
+                                        <button className="btn btn-outline-primary mr-3 p-2 w-32 mt-2 mb-2 font-serif" type="submit">
+                                            <Link to='/register' className='font-serif'>
                                                 Register
                                             </Link>
                                         </button>

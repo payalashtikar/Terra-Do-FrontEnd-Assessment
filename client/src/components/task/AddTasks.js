@@ -41,7 +41,7 @@ export const AddTask = () => {
                         <div className="col-sm-12 ">
                             <input
                                 type="text"
-                                className="form-control w-[400px] p-2"
+                                className="form-control w-[400px] p-2 font-serif"
                                 id="inputUsername"
                                 name='taskname'
                                 placeholder='add your task here'
@@ -51,8 +51,8 @@ export const AddTask = () => {
                         </div>
                     </div>
                     <div className=" row flex justify-center items-center ">
-                        <button className="btn btn-outline-success m-2 p-2 w-32" type="submit">Add</button>
-                        <button className="btn btn-outline-danger m-2 p-2 w-32" type="submit" onClick={goToHomePage}>Cancel</button>
+                        <button className="btn btn-outline-success m-2 p-2 w-32 font-serif" type="submit">Add</button>
+                        <button className="btn btn-outline-danger m-2 p-2 w-32 font-serif" type="submit" onClick={goToHomePage}>Cancel</button>
                     </div>
                 </form>
             </div>
