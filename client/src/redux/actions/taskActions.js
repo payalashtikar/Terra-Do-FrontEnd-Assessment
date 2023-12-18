@@ -42,8 +42,10 @@ export const addTask = (task) => async (dispatch) => {
             taskname: task,
         });
 
-        const data = response.data;
+        const data = response.data.message;
+        // window.location.reload();
         dispatch(addTaskSuccess(data));
+        console.log('added')
     } catch (error) {
         console.error('Error posting task:', error);
     }
