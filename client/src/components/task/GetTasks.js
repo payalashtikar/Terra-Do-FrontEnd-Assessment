@@ -12,10 +12,11 @@ const GetAllTask = () => {
 
     const dispatch = useDispatch();
     const tasks = useSelector((state) => state.task.tasks);
-
     const filterData = tasks.filter((item) =>
-        item.taskname.toLowerCase().includes(searchItem.toLowerCase())
+        item.taskname && item.taskname.toLowerCase().includes(searchItem.toLowerCase())
     );
+
+  
 
     const startIndex = (currentPage - 1) * itemPerPage
     const endIndex = (startIndex + itemPerPage)
@@ -58,15 +59,15 @@ const GetAllTask = () => {
                 {currentData.length
                     > 0 ? (
                     <ul className=' w-[100%] flex flex-col justify-center items-center'>
+                       
                         {currentData.map((item, id) => (
-                            <div className='font-serif w-[100%] card flex flex-col m-2 p-2 justify-center items-center'
-                                key={id}
-                            >
+                            <div className='font-serif w-[100%] card flex flex-col m-2 p-2 justify-center items-center' key={id}>
                                 <div className="card-body flex justify-between items-center  w-[100%]">
-                                    <h5 className="card-title text-2xl font-serif">{item.taskname}</h5>
+                                    <h5 className="card-title text-2xl font-serif">{item.taskname || 'No Task Name'}</h5>
                                     <div>
                                         <Link to={"/task/" + item._id} className="card-link">
                                             <i className="ri-edit-line m-2 text-2xl text-green-500"></i>
+
                                         </Link>
                                         <i className="ri-delete-bin-5-line m-2 text-2xl cursor-pointer text-red-500" onClick={() => deleteTaskFunction(item._id)}></i>
                                     </div>
@@ -75,7 +76,7 @@ const GetAllTask = () => {
                         ))}
                     </ul>
                 ) : (
-                    <p className='text-4xl font-serif'>No tasks available ! add tasks to see task list in your bucket ..!</p>
+                    <p className='text-4xl font-serif text-red-400'>Task list empty ! <br />add tasks to see task list in your bucket ..!</p>
                 )}
             </div>
             <div className='w-[100%]  mb-0 p-8 m-4 flex justify-between items-center'
