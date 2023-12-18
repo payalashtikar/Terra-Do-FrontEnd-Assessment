@@ -26,7 +26,7 @@ const Login = () => {
                 onSubmit={handleLogin}
             >
                 <div className="mb-3 row flex flex-col">
-                    <label for="inputEmail" className="col-sm-2 col-form-label flex justify-start">Email</label>
+                    <label htmlFor="inputEmail" className="col-sm-2 col-form-label flex justify-start">Email</label>
                     <div className="col-sm-10">
                         <input type="email" className="form-control  w-[450px]" id="inputEmail"
                             value={email}
@@ -36,7 +36,7 @@ const Login = () => {
                     </div>
                 </div>
                 <div className="mb-3 row flex flex-col">
-                    <label for="inputPassword" className="col-sm-2 col-form-label flex justify-start">Password</label>
+                    <label htmlFor="inputPassword" className="col-sm-2 col-form-label flex justify-start">Password</label>
                     <div className="col-sm-10">
                         <input type="password" className="form-control  w-[450px]" id="inputPassword"
                             value={password}

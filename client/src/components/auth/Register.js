@@ -26,7 +26,7 @@ const Register = () => {
                 onSubmit={handleRegister}
             >
                 <div className="mb-3 row flex flex-col ">
-                    <label for="inputUsername" className="col-sm-2 col-form-label flex justify-start">Username</label>
+                    <label htmlFor="inputUsername" className="col-sm-2 col-form-label flex justify-start">Username</label>
                     <div className="col-sm-10 ">
                         <input type="username" className="form-control w-[450px]" id="inputUsername"
                             value={username}
@@ -35,7 +35,7 @@ const Register = () => {
                     </div>
                 </div>
                 <div className="mb-3 row flex flex-col">
-                    <label for="inputEmail" className="col-sm-2 col-form-label flex justify-start">Email</label>
+                    <label htmlFor="inputEmail" className="col-sm-2 col-form-label flex justify-start">Email</label>
                     <div className="col-sm-10">
                         <input type="email" className="form-control  w-[450px]" id="inputEmail"
                             value={email}
@@ -44,7 +44,7 @@ const Register = () => {
                     </div>
                 </div>
                 <div className="mb-3 row flex flex-col">
-                    <label for="inputPassword" className="col-sm-2 col-form-label flex justify-start">Password</label>
+                    <label htmlFor="inputPassword" className="col-sm-2 col-form-label flex justify-start">Password</label>
                     <div className="col-sm-10">
                         <input type="password" className="form-control  w-[450px]" id="inputPassword"
                             value={password}
