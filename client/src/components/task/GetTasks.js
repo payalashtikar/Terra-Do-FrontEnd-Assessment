@@ -66,9 +66,9 @@ const GetAllTask = () => {
                                     <h5 className="card-title text-2xl font-serif">{item.taskname}</h5>
                                     <div>
                                         <Link to={"/task/" + item._id} className="card-link">
-                                            <i className="ri-edit-line m-2 text-2xl"></i>
+                                            <i className="ri-edit-line m-2 text-2xl text-green-500"></i>
                                         </Link>
-                                        <i className="ri-delete-bin-5-line m-2 text-2xl cursor-pointer" onClick={() => deleteTaskFunction(item._id)}></i>
+                                        <i className="ri-delete-bin-5-line m-2 text-2xl cursor-pointer text-red-500" onClick={() => deleteTaskFunction(item._id)}></i>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@ const GetAllTask = () => {
                     }}
                     style={{ cursor: currentPage === 1 ? 'not-allowed' : 'pointer' }}
                 ></i>
-                <span className='text-gray-500'> {currentPage}</span>
+                <span className='text-gray-500 font-serif'> {currentPage}</span>
                 <i
                     className="ri-arrow-right-line text-3xl text-gray-500"
                     // onClick={() => handlePageChange(currentPage + 1)}
