@@ -7,34 +7,49 @@ const itemPerPage = 10;
 
 const GetAllTask = () => {
     // const [tasks, setTasks] = useState([]);
+    const [searchItem, setSearchItem] = useState('');
+    const [currentPage, setCurrentPage] = useState(1)
+
     const dispatch = useDispatch();
     const tasks = useSelector((state) => state.task.tasks);
 
-    const [currentPage, setCurrentPage] = useState(1)
+    const filterData = tasks.filter((item) =>
+        item.taskname.toLowerCase().includes(searchItem.toLowerCase())
+    );
+
     const startIndex = (currentPage - 1) * itemPerPage
     const endIndex = (startIndex + itemPerPage)
 
-    const currentData = tasks.slice(startIndex, endIndex)
+    const currentData = filterData.slice(startIndex, endIndex)
 
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage)
     }
 
+    const handleSearchItem = (event) => {
+        setCurrentPage(1);
+        setSearchItem(event.target.value);
+    };
 
     useEffect(() => {
         dispatch(getAllTasks());
     }, [dispatch]);
 
     const deleteTaskFunction = (id) => {
-
         dispatch(deleteTask(id))
-
     };
 
 
     return (
         <div className='flex flex-col items-center  p-10'>
-            <h1 className='text-4xl p-4 text-gray-800'>All task list</h1>
+            <input
+                className='w-[400px] m-8 p-2  border rounded-md'
+                type='text'
+                placeholder='Type here to search'
+                value={searchItem}
+                onChange={handleSearchItem}
+            />
+            {/* <h1 className='text-4xl p-4 text-gray-800'>All task list</h1> */}
 
             <div className='w-[800px]'>
                 {currentData.length
