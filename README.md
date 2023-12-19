@@ -1,6 +1,6 @@
 # Terra-Do-FrontEnd-Assessment
 
-<!-- GUIDELINE TO RUN PROJECT CODEBASE -->
+### GUIDELINE TO RUN PROJECT CODEBASE ####
 
 1. clone the repository
 
@@ -21,16 +21,16 @@
 
 <!-- ======================================================================== -->
 
-<!-- THINGS HAVE INCLUDED , DONE -->
+#### THINGS HAVE DONE/IMPLEMENTED ####
 
-<!-- tech used : -->
+TECH USED :-
 MongoDB, Nodejs, ReactJS, Redux, bootstrap,tailwind css
 
-<!-- Implemented :  -->
+IMPLEMENTED :-
 authentication
 CRUD operation with task 
 
-<!-- api's -->
+ALL API'S :-
 /register - for registration ,
 /login - for login ,
 /task - get all tasks ,
@@ -38,7 +38,7 @@ CRUD operation with task
 /task/:id - update task ,
 /task/:id - delete task ,
 
-<!-- done all components : -->
+ALL COMPONENTS :-
 Login ,
 Register ,
 Navbar ,
@@ -46,18 +46,18 @@ GetAllTasks ,
 AddTasks ,
 UpdateTasks ,
 
-<!-- created two page to manage all components :  -->
+CREATED PAGES TO MANAGE ALL COMPONENTS :-
 landingpage ,
 homepage
 
 
-<!-- functionalities done :  -->
+FUNCTIONALITIES DONE :-
 token verification ,
 password hashing ,
-pagination ,
+pagination (per page 10 items),
 searching ,
 if user is not login then he/she can't able to access next route
 
 
-<!-- FLOW of the code -->
+FLOW OF THE CODE :-
 ![Alt text](image.png)
